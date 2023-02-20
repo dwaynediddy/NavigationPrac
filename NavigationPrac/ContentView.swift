@@ -11,14 +11,13 @@ struct ContentView: View {
     @State private var path = [String]()
     @State private var selectedTab: Tab = .house
     var body: some View {
-        CustomTabBar(selectedTab: $selectedTab)
         NavigationStack(path: $path) {
             List {
                 NavigationLink ("title", value: "abc")
-                
                 Button("navigate to xyz ") {
                     path.append("new path xyz")
                 }
+                CustomTabBar(selectedTab: $selectedTab)
             }
             .navigationDestination(for: String.self) { string in
                 Text(string)
