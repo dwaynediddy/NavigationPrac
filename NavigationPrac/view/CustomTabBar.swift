@@ -23,7 +23,7 @@ struct CustomTabBar: View {
                          .foregroundColor(selectedTab == tab ? .red : .gray)
                          .font(.system(size: 22))
                          .onTapGesture {
-                             withAnimation(.easeInOut(Duration: 0.2)) {
+                             withAnimation(.easeIn(duration: 0.2)) {
                                  selectedTab = tab
                              }
                          }
