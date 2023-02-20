@@ -13,6 +13,7 @@
 		15F9000F29A37C82003AEB0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15F9000E29A37C82003AEB0C /* Preview Assets.xcassets */; };
 		15F9001629A37F9D003AEB0C /* NewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F9001529A37F9D003AEB0C /* NewView.swift */; };
 		15F9001929A39029003AEB0C /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F9001829A39029003AEB0C /* CustomTabBar.swift */; };
+		15F9001C29A39C1E003AEB0C /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F9001B29A39C1E003AEB0C /* TabBarModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		15F9000E29A37C82003AEB0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		15F9001529A37F9D003AEB0C /* NewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewView.swift; sourceTree = "<group>"; };
 		15F9001829A39029003AEB0C /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		15F9001B29A39C1E003AEB0C /* TabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 		15F9000629A37C7E003AEB0C /* NavigationPrac */ = {
 			isa = PBXGroup;
 			children = (
+				15F9001A29A39C0A003AEB0C /* model */,
 				15F9001729A37FBD003AEB0C /* view */,
 				15F9000729A37C7E003AEB0C /* NavigationPracApp.swift */,
 				15F9000929A37C7E003AEB0C /* ContentView.swift */,
@@ -71,6 +74,14 @@
 				15F9001829A39029003AEB0C /* CustomTabBar.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		15F9001A29A39C0A003AEB0C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				15F9001B29A39C1E003AEB0C /* TabBarModel.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		15F9FFFB29A37C7E003AEB0C = {
@@ -155,6 +166,7 @@
 				15F9001629A37F9D003AEB0C /* NewView.swift in Sources */,
 				15F9000A29A37C7E003AEB0C /* ContentView.swift in Sources */,
 				15F9000829A37C7E003AEB0C /* NavigationPracApp.swift in Sources */,
+				15F9001C29A39C1E003AEB0C /* TabBarModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

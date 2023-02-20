@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var path = [String]()
+    @State private var selectedTab: Tab = .house
     var body: some View {
+        CustomTabBar(selectedTab: $selectedTab)
         NavigationStack(path: $path) {
             List {
                 NavigationLink ("title", value: "abc")
