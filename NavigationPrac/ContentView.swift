@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var path = [String]()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack(path: $path) {
+            List {
+                NavigationLink ("title", value: "abc")
+                
+                Button("navigate to xyz ") {
+                    path.append("new path xyz")
+                }
+            }
+            .navigationDestination(for: String.self) { string in
+                Text(string)
+            }
         }
-        .padding()
     }
 }
 
