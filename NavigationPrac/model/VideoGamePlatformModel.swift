@@ -13,3 +13,8 @@ struct Platform: Hashable {
     let imageName: String
     let color: Color
 }
+
+struct Game: Hashable {
+let name: String
+let rating: Int
+}

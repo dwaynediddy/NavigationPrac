@@ -10,9 +10,14 @@ import SwiftUI
 struct VideoGamePlatformView: View {
     
     var platforms: [Platform] = [.init(name: "xbox", imageName: "xbox.logo", color: .green),
-                                 .init(name: "playstation", imageName: "playstation.logo", color: .blue),
-                                 .init(name: "mobile", imageName: "iphone", color: .red)
-    ]
+                                 .init(name: "playstation", imageName: "playstation.logo", color: .indigo),
+                                 .init(name: "mobile", imageName: "iphone", color: .red)]
+    
+    var games: [Game] = [.init(name: "NBA 2k", rating: 91),
+                         .init(name: "RuneScape", rating: 100),
+                         .init(name: "CSGO", rating: 88),
+                         .init(name: "RS3", rating: 17)]
+
 
     var body: some View {
         NavigationStack {
@@ -25,8 +30,26 @@ struct VideoGamePlatformView: View {
                         }
                     }
                 }
+                Section("Games") {
+                    ForEach(games,id: \.name) { game in
+                        NavigationLink(value: game) {
+                            Text(game.name)
+                        }
+                    }
+                }
             }
             .navigationTitle("Gaming")
+            .navigationDestination(for: Platform.self) { platform in
+                ZStack {
+                    platform.color.ignoresSafeArea()
+                    Label(platform.name, systemImage: platform.imageName)
+                        .font(.largeTitle).bold()
+                }
+            }
+            .navigationDestination(for: Game.self) { game in
+                Text("\(game.name) - \(game.rating) / 100")
+                    .font(.largeTitle).bold()
+            }
         }
     }
 }
