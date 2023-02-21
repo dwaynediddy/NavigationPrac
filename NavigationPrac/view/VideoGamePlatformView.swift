@@ -17,10 +17,12 @@ struct VideoGamePlatformView: View {
                          .init(name: "RuneScape", rating: 100),
                          .init(name: "CSGO", rating: 88),
                          .init(name: "RS3", rating: 17)]
+    
+    @State private var path = NavigationPath()
 
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             List {
                 Section("Platforms") {
                     ForEach(platforms, id: \.name) { platform in
@@ -42,13 +44,36 @@ struct VideoGamePlatformView: View {
             .navigationDestination(for: Platform.self) { platform in
                 ZStack {
                     platform.color.ignoresSafeArea()
-                    Label(platform.name, systemImage: platform.imageName)
-                        .font(.largeTitle).bold()
+                    VStack {
+                            Label(platform.name, systemImage: platform.imageName)
+                                .font(.largeTitle).bold()
+                        List {
+                            ForEach(games,id: \.name) { game in
+                                NavigationLink(value: game) {
+                                    Text(game.name)
+                                }
+                            }
+                        }
+                    }
                 }
             }
             .navigationDestination(for: Game.self) { game in
-                Text("\(game.name) - \(game.rating) / 100")
-                    .font(.largeTitle).bold()
+                VStack(spacing: 20) {
+                    Text("\(game.name) - \(game.rating) / 100")
+                        .font(.largeTitle).bold()
+                    
+                    Button("Recomended Game") {
+                        path.append(games.randomElement()!)
+                    }
+                    
+                    Button("Go to another Platform") {
+                        path.append(platforms.randomElement()!)
+                    }
+                    
+                    Button("Go Home") {
+                        path.removeLast(path.count)
+                    }
+                }
             }
         }
     }
