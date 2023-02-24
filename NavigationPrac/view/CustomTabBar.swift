@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomTabBar: View {
     @Binding var selectedTab: Tab
+    
     private var fillImage: String {
         selectedTab.rawValue + ".fill"
     }
@@ -28,8 +29,25 @@ struct CustomTabBar: View {
         }
     }
     
+    private var tabView: AnyView {
+        switch selectedTab {
+        case .house:
+            return AnyView(HouseView())
+        case .message:
+            return AnyView(MessageView())
+        case .person:
+            return AnyView(HouseView())
+        case .leaf:
+            return AnyView(LeafView())
+        case.gearshape:
+            return AnyView(HouseView())
+            
+        }
+    }
+    
     var body: some View {
          VStack {
+             tabView
              HStack {
                  ForEach(Tab.allCases, id: \.rawValue) { tab in
                      Spacer()
